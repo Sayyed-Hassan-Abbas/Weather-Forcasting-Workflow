@@ -1,0 +1,319 @@
+{
+  "name": "My workflow 5",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cf7d5380-86be-447c-bb07-ac9ca9ca3a52",
+              "name": "orderID",
+              "value": "ORD-123456",
+              "type": "string"
+            },
+            {
+              "id": "72aa3141-c352-46ad-ae80-8d09fabfd656",
+              "name": "customerName",
+              "value": "hamza",
+              "type": "string"
+            },
+            {
+              "id": "04b8ed6d-f5d3-44d8-9c43-fe1cacde932a",
+              "name": "shippingaddress",
+              "value": "usa",
+              "type": "string"
+            },
+            {
+              "id": "0d149417-c6bd-492c-a3d6-3da8a9f2feb8",
+              "name": "shippingmethod",
+              "value": "starderd",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -640,
+        -48
+      ],
+      "id": "da21c319-8bac-4ed3-a8d8-c9e386e4ba19",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e978bd57-6e9d-488b-8f35-18a5f20b6f19",
+              "leftValue": "={{ $json.shippingmethod }}",
+              "rightValue": "starderd",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -448,
+        -48
+      ],
+      "id": "a819dca9-bcfb-4745-8309-55320cb084c8",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.shippingaddress }}",
+                    "rightValue": "usa",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "bfb59db5-3763-4c55-a3d0-1eef6a8a5adf"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "f068d813-32a4-4511-8275-2bb1ed466d25",
+                    "leftValue": "={{ $json.shippingaddress }}",
+                    "rightValue": "uk",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "05af932e-1040-49d0-bed0-04cd124f9302",
+                    "leftValue": "={{ $json.shippingaddress }}",
+                    "rightValue": "pakistan",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -224,
+        -256
+      ],
+      "id": "3474d1be-bf2f-4239-899d-2472cda22ee0",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.shippingaddress }}",
+                    "rightValue": "usa",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "bfb59db5-3763-4c55-a3d0-1eef6a8a5adf"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "f068d813-32a4-4511-8275-2bb1ed466d25",
+                    "leftValue": "={{ $json.shippingaddress }}",
+                    "rightValue": "uk",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "05af932e-1040-49d0-bed0-04cd124f9302",
+                    "leftValue": "={{ $json.shippingaddress }}",
+                    "rightValue": "pakistan",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -224,
+        80
+      ],
+      "id": "0ee65ac9-d9a0-463b-8f40-1bcdf971ea50",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "shipping",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -880,
+        -48
+      ],
+      "id": "6823fd57-1f25-4b24-9313-46bcaa9361fc",
+      "name": "Webhook",
+      "webhookId": "e5105831-b26f-4262-a8c5-ad420d93c8af"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "172455a7-81a7-433a-a07d-fc3f99afde75",
+  "meta": {
+    "instanceId": "e05f5bd8d83a324a2f70b1aeb8fb885e483f4e3b275e1db770f8347a289d9649"
+  },
+  "nodeGroups": [],
+  "id": "PXzi8VDLHvparcrl",
+  "tags": []
+}
